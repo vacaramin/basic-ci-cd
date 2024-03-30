@@ -2,11 +2,22 @@ version: '3.9'
 
 services:
   frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    depends_on:
+      - backend
   
   backend:
-  
-  db:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    
 
-networks:
 
-volumes:

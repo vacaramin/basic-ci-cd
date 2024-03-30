@@ -12,8 +12,12 @@ RUN go mod download
 # Copy the source code
 COPY . .
 
+
+# Install GCC
+RUN apk add gcc musl-dev
+
 # Build the application
-RUN go build -o main .
+RUN CGO_ENABLED=1 go build -o main .
 
 EXPOSE 8080
 
@@ -23,5 +27,7 @@ FROM alpine:latest
 WORKDIR /app
 
 COPY --from=builder /app/main .
+COPY ./.env .
+COPY users.db .
 
 CMD ["./main"]

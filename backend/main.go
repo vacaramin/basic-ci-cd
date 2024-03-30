@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
+	"github.com/mattn/go-sqlite3"
 )
 
 type Users struct {
@@ -16,11 +17,13 @@ type Users struct {
 }
 
 func main() {
+	log.Println("...Starting server...")
+	var _ *sqlite3.SQLiteDriver
 	loadENV()
-
+	log.Println("...Environment variables loaded...")
 	db := initDB()
 	defer db.Close()
-
+	log.Println("...Initializing DB...")
 	http.HandleFunc("/", homeHandler)
 	http.HandleFunc("/users", getUsersHandler(db))
 	http.HandleFunc("/user", createUserHandler(db))
@@ -30,6 +33,7 @@ func main() {
 	http.HandleFunc("/ping", pingHandler)
 	http.HandleFunc("/pong", pongHandler)
 
+	log.Println("Server is running on port:", os.Getenv("PORT"))
 	http.ListenAndServe(os.Getenv("PORT"), nil)
 }
 
@@ -41,6 +45,7 @@ func loadENV() {
 }
 func initDB() *sql.DB {
 	db, err := sql.Open("sqlite3", "./users.db")
+
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -74,7 +79,17 @@ func initDB() *sql.DB {
 
 // Handlers for CRUD operations
 func getUsersHandler(db *sql.DB) http.HandlerFunc {
+
 	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*") // Allow any domain
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+		// Handle preflight requests for CORS
+		if r.Method == "OPTIONS" {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
 		users := []User{}
 		rows, err := db.Query("SELECT id, name, age FROM users")
 		if err != nil {
