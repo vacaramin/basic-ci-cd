@@ -1,0 +1,13 @@
+name: Frontend deploy 
+on: 
+  push:
+      branches:
+        - main
+
+jobs:
+  deploy:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+      
