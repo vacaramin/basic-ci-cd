@@ -45,6 +45,9 @@ setting up a basic CI/CD pipeline for a web application. The application consist
 - Frontend
   - [Frontend Dev Branch Deployment](https://dev-basic-ci-frontend.wonderfulwave-531b1711.centralus.azurecontainerapps.io "frontend Dev")
   - [Frontend Main Branch Deployment](https://basic-ci-frontend.wonderfulwave-531b1711.centralus.azurecontainerapps.io "frontend Main")
+
+  - [Firebase based Deployment](https://dev-basic-ci.web.app/)
+
 - Backend
   - [Backend Dev Branch Deployment](https://dev-basic-ci-cd-backend.wonderfulwave-531b1711.centralus.azurecontainerapps.io "backend Dev")
   - [Backend Main Branch Deployment](https://basic-ci-cd-backend.wonderfulwave-531b1711.centralus.azurecontainerapps.io "backend")
