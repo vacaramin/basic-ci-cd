@@ -34,7 +34,7 @@ jobs:
           context: ./frontend
           file: ./frontend/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/basic-ci-frontend:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/dev-basic-ci-frontend:latest
     
   deploy-azure:
     needs: docker
