@@ -91,6 +91,8 @@ func handleci(w http.ResponseWriter, r *http.Request) {
 	randomData := make(map[string]string)
 	randomData["CI"] = "Github Actions"
 	randomData["Deployment"] = "DockerHUB and azure"
+	randomData["PipelineTest"] = "Dev"
+
 	jsonResponse, err := json.Marshal(randomData)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
