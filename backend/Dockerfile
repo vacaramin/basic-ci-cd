@@ -19,7 +19,7 @@ RUN apk add gcc musl-dev
 # Build the application
 RUN CGO_ENABLED=1 go build -o main .
 
-EXPOSE 8080
+EXPOSE 80
 
 # Using lighter image for running the application build
 FROM alpine:latest
