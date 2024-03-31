@@ -1,8 +1,6 @@
 name: Deploy backend Azure
 
-env:
-  AZURE_WEBAPP_NAME: basic-ci-cd-backend
-  
+
 on:
   workflow_dispatch:
   push:

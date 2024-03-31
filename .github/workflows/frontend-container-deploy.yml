@@ -9,6 +9,7 @@ on:
       - 'frontend/**'
       - '.github/workflows/frontend-container-deploy.yml'
 
+      
 permissions:
   id-token: write
   contents: read
