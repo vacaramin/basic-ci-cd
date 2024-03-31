@@ -1,4 +1,4 @@
-name: Deploy backend Azure
+name: Dev Deploy backend Azure
 
 env:
   AZURE_WEBAPP_NAME: basic-ci-cd-backend
@@ -70,7 +70,7 @@ jobs:
       - name: Run Azure CLI script
         run: |
           az containerapp up \
-          --name basic-ci-cd-backend \
+          --name dev-basic-ci-cd-backend \
           --resource-group basic-ci-cd \
           --location centralus \
           --environment 'basic-ci-cd' \
