@@ -1,7 +1,7 @@
 name: Deploy backend Azure
 
 env:
-  AZURE_WEBAPP_NAME: DEV-BASIC-CI-CD
+  AZURE_WEBAPP_NAME: basic-ci-cd-backend
   
 on:
   workflow_dispatch:
@@ -46,9 +46,29 @@ jobs:
           file: ./backend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/basic-ci-cd-backend:latest
+  deploy-azure:
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-
-
-  
+      - name: Run Azure CLI script
+        run: |
+          az containerapp up \
+          --name basic-ci-cd-backend \
+          --resource-group basic-ci-cd \
+          --location centralus \
+          --environment 'basic-ci-cd'
+          --image ${{ secrets.DOCKER_USERNAME }}/basic-ci-cd-backend:latest \
+          --target-port 80 \
+          --ingress external \
+          --query properties.configuation.ingress.fqdn 
 
     
