@@ -6,10 +6,9 @@ FROM nginx:alpine
 COPY . /usr/share/nginx/html
 
 # Exposing the port
-EXPOSE 3000
+EXPOSE 80
 
-# Modify NGINX configuration to listen on port 3000
-RUN sed -i -e 's/80/3000/g' /etc/nginx/conf.d/default.conf
+
 
 # Running the nginx server
 CMD ["nginx", "-g", "daemon off;"]
