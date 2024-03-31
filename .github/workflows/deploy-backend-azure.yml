@@ -8,6 +8,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'backend/**'
+      - '.github/workflows/deploy-backend-azure.yml'
 
 permissions:
   id-token: write
