@@ -32,6 +32,7 @@ func main() {
 	http.HandleFunc("/404", NotFoundHandler)
 	http.HandleFunc("/ping", pingHandler)
 	http.HandleFunc("/pong", pongHandler)
+	http.HandleFunc("/ci", handleci)
 
 	log.Println("Server is running on port:", os.Getenv("PORT"))
 	http.ListenAndServe(os.Getenv("PORT"), nil)
@@ -75,6 +76,31 @@ func initDB() *sql.DB {
 	}
 
 	return db
+}
+
+func handleci(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*") // Allow any domain
+	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+	// Handle preflight requests for CORS
+	if r.Method == "OPTIONS" {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+	randomData := make(map[string]string)
+	randomData["CI"] = "Github Actions"
+	randomData["Deployment"] = "DockerHUB and azure"
+	jsonResponse, err := json.Marshal(randomData)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	w.Write(jsonResponse)
+
 }
 
 // Handlers for CRUD operations
