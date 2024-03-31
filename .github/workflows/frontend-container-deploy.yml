@@ -1,4 +1,4 @@
-name: Dev Deploy backend Azure
+name: Frontend Container Deploy
 
 on:
   workflow_dispatch:
