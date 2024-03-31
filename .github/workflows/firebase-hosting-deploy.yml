@@ -1,9 +1,13 @@
 name: Deploy to Firebase Hosting DEV Frontend
 on: 
+  workflow_dispatch:
   push:
     branches:
       - develop
-  
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/firebase-hosting-pull-request.yml'
+
 permissions:
   checks: write
   contents: read
