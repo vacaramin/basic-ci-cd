@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://api.vacaramin.me";
+const API_BASE_URL = "https://basic-ci-cd-backend.wonderfulwave-531b1711.centralus.azurecontainerapps.io";
 
 async function fetchUsers() {
     try {

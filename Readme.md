@@ -11,19 +11,30 @@ setting up a basic CI/CD pipeline for a web application. The application consist
 
 2. CI/CD Pipeline
 
-    - [x] Choose a CI/CD tool (e.g., **GitHub Actions**, Jenkins).
+    - [x] Choose a CI/CD tool (e.g., GitHub Actions, Jenkins).
+      - _Github Actions_
     - [x] Set up a basic pipeline that triggers on each commit to the develop branch.
-    - [ ] Include stages for building and deploying both the static website and API.
+      - _Implemented for both develop and main branch_
+    - [x] Include stages for building and deploying both the static website and API.
+      - _Stages implemented:_
+        - _Testing(for backend only)_
+        - _Build and push image to Dockerhub_
+        - _Deploy Containers to Azure_
 
 3. Automated Testing:
 
-    - [ ] Implement a simple automated test for the API (e.g., a basic endpoint response check).
-    - [ ] Ensure that the CI/CD pipeline fails if the test fails.
+    - [x] Implement a simple automated test for the API (e.g., a basic endpoint response check).
+      - _Tests written in Go_
+    - [x] Ensure that the CI/CD pipeline fails if the test fails.
+      - _Tested to fail if the test cases fail_
 
 4. Deployment:
 
-    - [ ] Deploy the static website to a simple web server.
-    - [ ] Deploy the API to a server, ensuring that it can handle basic HTTP requests.
+    - [x] Deploy the static website to a simple web server.
+      - _Firebase deployment done_
+      - _Nginx server container deployment to azure_
+    - [x] Deploy the API to a server, ensuring that it can handle basic HTTP requests.
+      - _Containerized API Server deployed to azure_
 
 ### Project Structure
 
@@ -31,5 +42,9 @@ setting up a basic CI/CD pipeline for a web application. The application consist
 
 ### Deployments
 
-- [Frontend](https://ci.vacaramin.me "frontend")
-- [Backend](https://vacaramin.me "backend")
+- Frontend
+  - [Frontend Dev Branch Deployment](https://dev-basic-ci-frontend.wonderfulwave-531b1711.centralus.azurecontainerapps.io "frontend Dev")
+  - [Frontend Main Branch Deployment](https://basic-ci-frontend.wonderfulwave-531b1711.centralus.azurecontainerapps.io "frontend Main")
+- Backend
+  - [Backend Dev Branch Deployment](https://dev-basic-ci-cd-backend.wonderfulwave-531b1711.centralus.azurecontainerapps.io "backend Dev")
+  - [Backend Main Branch Deployment](https://basic-ci-cd-backend.wonderfulwave-531b1711.centralus.azurecontainerapps.io "backend")

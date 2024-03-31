@@ -1,4 +1,4 @@
-name: Frontend Container Deploy
+name: Dev Frontend Container Deploy
 
 on:
   workflow_dispatch:
