@@ -2,6 +2,15 @@
 
 setting up a basic CI/CD pipeline for a web application. The application consists of a simple static website and a basic RESTful API.
 
+#### Workflows Status
+
+[![Frontend Container Deploy](https://github.com/vacaramin/basic-ci-cd/actions/workflows/frontend-container-deploy.yml/badge.svg)](https://github.com/vacaramin/basic-ci-cd/actions/workflows/frontend-container-deploy.yml)
+[![Dev Frontend Container Deploy](https://github.com/vacaramin/basic-ci-cd/actions/workflows/dev-frontend-container-deploy.yml/badge.svg)](https://github.com/vacaramin/basic-ci-cd/actions/workflows/dev-frontend-container-deploy.yml)
+[![Dev Deploy backend Azure](https://github.com/vacaramin/basic-ci-cd/actions/workflows/dev-deploy-backend-azure.yml/badge.svg)](https://github.com/vacaramin/basic-ci-cd/actions/workflows/dev-deploy-backend-azure.yml)
+[![Deploy to Firebase Hosting on merge](https://github.com/vacaramin/basic-ci-cd/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/vacaramin/basic-ci-cd/actions/workflows/firebase-hosting-merge.yml)
+[![Deploy to Firebase Hosting DEV Frontend](https://github.com/vacaramin/basic-ci-cd/actions/workflows/firebase-hosting-deploy.yml/badge.svg)](https://github.com/vacaramin/basic-ci-cd/actions/workflows/firebase-hosting-deploy.yml)
+[![Deploy backend Azure](https://github.com/vacaramin/basic-ci-cd/actions/workflows/deploy-backend-azure.yml/badge.svg)](https://github.com/vacaramin/basic-ci-cd/actions/workflows/deploy-backend-azure.yml)
+
 ## Tasks
 
 1. Version Control (Git):
